@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/SKKUBUS_webview/static/css/main.0e4c3388.css",
-    "main.js": "/SKKUBUS_webview/static/js/main.2001e1bb.js",
-    "static/js/787.12e9d459.chunk.js": "/SKKUBUS_webview/static/js/787.12e9d459.chunk.js",
-    "static/media/logo.svg": "/SKKUBUS_webview/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/SKKUBUS_webview/index.html",
-    "main.0e4c3388.css.map": "/SKKUBUS_webview/static/css/main.0e4c3388.css.map",
-    "main.2001e1bb.js.map": "/SKKUBUS_webview/static/js/main.2001e1bb.js.map",
-    "787.12e9d459.chunk.js.map": "/SKKUBUS_webview/static/js/787.12e9d459.chunk.js.map"
+    "main.css": "./static/css/main.0e4c3388.css",
+    "main.js": "./static/js/main.5d24afc9.js",
+    "static/js/787.12e9d459.chunk.js": "./static/js/787.12e9d459.chunk.js",
+    "static/media/logo.svg": "./static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "./index.html",
+    "main.0e4c3388.css.map": "./static/css/main.0e4c3388.css.map",
+    "main.5d24afc9.js.map": "./static/js/main.5d24afc9.js.map",
+    "787.12e9d459.chunk.js.map": "./static/js/787.12e9d459.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0e4c3388.css",
-    "static/js/main.2001e1bb.js"
+    "static/js/main.5d24afc9.js"
   ]
 }
