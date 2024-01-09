@@ -1,7 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect } from "react";
-import Hello from "./pages/KNewYearBus";
+import KNewYearBus from "./pages/KNewYearBus/KNewYearBus";
+import KNewYearBusDetail from "./pages/KNewYearBus/KNewYearBusDetail";
 import { Routes, Route } from "react-router-dom";
 import ErrorPage from "./pages/error";
 
@@ -18,7 +19,8 @@ function App() {
     <Routes>
       <Route path="/" element={<ErrorPage />} />
       <Route path="bus">
-        <Route path="newyear" element={<Hello />} />
+        <Route path="newyear" element={<KNewYearBus />} />
+        <Route path="newyear/detail" element={<KNewYearBusDetail />} />
       </Route>
     </Routes>
   );
