@@ -14,16 +14,16 @@ const INACTIVE_OUTLINE = 3;
 
 const toPx = (num) => `${num}px`;
 
-// // StopConnector Component
-// const StopConnector = ({ index, activeIndex, weight }) => {
-//   return (
-//     <Box
-//       background={activeIndex >= index ? ACTIVE_COLOR : INACTIVE_COLOR}
-//       style={{ flexGrow: weight }}
-//       height={toPx(CONNECTOR_THICKNESS)}
-//     />
-//   );
-// };
+// StopConnector Component
+const StopConnector = ({ index, activeIndex, weight }) => {
+  return (
+    <Box
+      background={activeIndex >= index ? ACTIVE_COLOR : INACTIVE_COLOR}
+      style={{ flexGrow: weight }}
+      height={toPx(CONNECTOR_THICKNESS)}
+    />
+  );
+};
 
 // SubwayMap Component
 function SubwayMap({ stops, activeIndex }) {
