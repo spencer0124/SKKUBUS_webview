@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   overscroll-behavior: none;
   user-select: none;
   -webkit-user-select: none;

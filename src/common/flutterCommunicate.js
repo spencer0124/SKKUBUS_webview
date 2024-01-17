@@ -7,6 +7,13 @@ const flutterCommunicate = (url) => {
   } catch (e) {
     console.log(e);
   }
+
+  try {
+    // eslint-disable-next-line no-undef
+    webtofluttermessage.postMessage(url);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export default flutterCommunicate;
