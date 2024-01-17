@@ -5,6 +5,7 @@ import KNewYearBus from "./pages/KNewYearBus/KNewYearBus";
 import KNewYearBusDetail from "./pages/KNewYearBus/KNewYearBusDetail";
 import { Routes, Route } from "react-router-dom";
 import ErrorPage from "./pages/error";
+import HSSCMap from "./pages/hsscmap/hsscmap";
 
 function App() {
   function setScreenSize() {
@@ -18,6 +19,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<ErrorPage />} />
+      <Route path="map">
+        <Route path="hssc" element={<HSSCMap />} />
+      </Route>
       <Route path="bus">
         <Route path="newyear" element={<KNewYearBus />} />
         <Route path="newyear/detail" element={<KNewYearBusDetail />} />
