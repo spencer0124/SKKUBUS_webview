@@ -72,8 +72,8 @@ export const handleSVGClick = (event) => {
       afterplace: availableLines[actualId].afterplace,
       placeinfo: availableLines[actualId].placeinfo,
       time: availableLines[actualId].time,
-      x: rect.left + window.scrollX - 50,
-      y: rect.top + window.scrollY - 50,
+      x: rect.left + window.scrollX - 9,
+      y: rect.top + window.scrollY - 25,
     };
     return overlayInfo;
   }

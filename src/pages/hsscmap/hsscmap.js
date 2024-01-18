@@ -51,15 +51,17 @@ function HSSCMap() {
       {overlayInfo && (
         <div
           style={{ left: overlayInfo.x, top: overlayInfo.y }}
-          className="absolute flex"
+          className="absolute flex flex-col items-center"
         >
-          <div className="bg-white shadow-lg rounded-l-lg p-4 border border-gray-300 flex-grow">
-            <div className="text-xs text-gray-700">{overlayInfo.placename}</div>
+          {/* Tooltip Box */}
+          <div className="p-1 bg-white shadow-lg rounded-lg  border border-gray-300">
+            <div className="text-xs text-gray-700">
+              {/* {overlayInfo.placename} */}
+              📍
+            </div>
           </div>
-          <button className="bg-deep-green text-white font-bold text-xs py-2 px-4 rounded-r-lg">
-            ···
-          </button>
-          <div className="absolute w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-t-transparent border-l-transparent border-r-transparent border-b-black left-1/2 transform -translate-x-1/2 -translate-y-full rotate-180"></div>
+          {/* Tooltip Arrow */}
+          <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-gray-300"></div>
         </div>
       )}
     </div>
