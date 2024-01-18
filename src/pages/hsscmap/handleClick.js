@@ -1,73 +1,51 @@
-// handleClick.js
 import availableLines from "./availableLines";
 
-const checkNearby = (x, y, expansionRadius) => {
-  for (
-    let dx = -expansionRadius;
-    dx <= expansionRadius;
-    dx += expansionRadius
-  ) {
-    for (
-      let dy = -expansionRadius;
-      dy <= expansionRadius;
-      dy += expansionRadius
-    ) {
-      const element = document.elementFromPoint(x + dx, y + dy);
-      if (element && (element.id || element.getAttribute("data-group"))) {
-        return element;
-      }
-    }
+/*
+건물끼리 연결하는 연결통로(connect)는 그룹으로 이루어져 있음 -> groupId로 구분
+건물 내부의 층들은 각각 원으로 이루어져 있음 -> id로 구분
+
+터치를 쉽게 하기 위해 각각의 도형 위에는
+크기가 더 큰 투명도 1% 도형을 그려놓음
+따라서 실제로 정보를 가져오기 위해는 이름에서 "_clickarea"를 제거해야 함
+*/
+
+export const handleSVGClick = (event) => {
+  const target = event.target;
+  let { id: clickedId, groupId } = extractIds(target);
+
+  clickedId = processClickArea(clickedId);
+  groupId = groupId ? processClickArea(groupId) : groupId;
+
+  const actualId = groupId || clickedId;
+  if (isAvailableLine(actualId)) {
+    return createOverlayInfo(actualId);
   }
+
   return null;
 };
 
-export const handleSVGClick = (event) => {
-  let clickedId = event.target.id;
-  let target = event.target;
-  let groupId = target.getAttribute("data-group");
+const extractIds = (element) => {
+  return {
+    id: element.id,
+    groupId: element.getAttribute("data-group"),
+  };
+};
 
-  if (clickedId.endsWith("_clickarea")) {
-    clickedId = clickedId.replace("_clickarea", "");
-  } else if (groupId && groupId.endsWith("_clickarea")) {
-    groupId = groupId.replace("_clickarea", "");
-  }
+const processClickArea = (id) => {
+  return id && id.endsWith("_clickarea") ? id.replace("_clickarea", "") : id;
+};
 
-  if (
-    !(
-      availableLines.hasOwnProperty(clickedId) ||
-      (groupId && availableLines.hasOwnProperty(groupId))
-    )
-  ) {
-    const expansionRadius = 70;
-    const rect = target.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const nearbyElement = checkNearby(centerX, centerY, expansionRadius);
+const isAvailableLine = (id) => {
+  return availableLines.hasOwnProperty(id);
+};
 
-    if (nearbyElement) {
-      clickedId = nearbyElement.id;
-      groupId = nearbyElement.getAttribute("data-group");
-    }
-  }
+const createOverlayInfo = (id) => {
+  const element = document.getElementById(id);
+  const rect = element.getBoundingClientRect();
 
-  const actualId = groupId || clickedId;
-  if (availableLines.hasOwnProperty(actualId)) {
-    const element = document.getElementById(actualId);
-    const rect = element.getBoundingClientRect();
-    const overlayInfo = {
-      placename: availableLines[actualId].placename,
-      buildingname: availableLines[actualId].buildingname,
-      previousplace: availableLines[actualId].previousplace,
-      afterplace: availableLines[actualId].afterplace,
-      placeinfo: availableLines[actualId].placeinfo,
-      time: availableLines[actualId].time,
-      leftColor: availableLines[actualId].leftColor,
-      rightColor: availableLines[actualId].rightColor,
-      x: rect.left + window.scrollX - 9,
-      y: rect.top + window.scrollY - 25,
-    };
-    return overlayInfo;
-  }
-
-  return null;
+  return {
+    ...availableLines[id],
+    x: rect.left + window.scrollX - 9,
+    y: rect.top + window.scrollY - 25,
+  };
 };

@@ -16,6 +16,8 @@ function HSSCMap() {
      */
     event.stopPropagation(); // 이거 넣으면 두번씩 터치되는 문제 해결!
     const info = handleSVGClick(event);
+
+    // 마커 생성되는 경우
     if (info) {
       setOverlayInfo(info);
       console.log("info:", info);
@@ -31,7 +33,10 @@ function HSSCMap() {
         info.leftColor,
         info.rightColor
       );
-    } else {
+    }
+
+    // 마커 사라지는 경우
+    else {
       console.log("no overlay");
       flutterMapCommunicate("delete");
     }
@@ -41,7 +46,7 @@ function HSSCMap() {
     setOverlayInfo(null);
   };
 
-  // overlayInfo가 있으면, 아래의 div를 보여준다.
+  // overlayInfo가 있으면, 아래의 div(마커 ui)를 보여준다.
   return (
     <div onClick={onSVGClick}>
       <HSSCMapSVG className="h-screen w-auto pb-20 pt-0.5 px-2.5" />
