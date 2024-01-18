@@ -51,23 +51,27 @@ export const handleSVGClick = (event) => {
   }
 
   if (availableLines.hasOwnProperty(clickedId)) {
-    console.log("if - Information:", availableLines[clickedId]);
+    // console.log("if - Information:", availableLines[clickedId]);
     // alert(availableLines[clickedId]);
   } else if (groupId && availableLines.hasOwnProperty(groupId)) {
-    console.log("else if - Information:", availableLines[groupId]);
+    // console.log("else if - Information:", availableLines[groupId]);
     // alert(availableLines[groupId]);
   } else {
-    console.log("else - Clicked ID:", clickedId);
-    console.log("else - Clicked ID not found in availableLines");
+    // console.log("else - Clicked ID:", clickedId);
+    // console.log("else - Clicked ID not found in availableLines");
   }
 
-  // 추가
   const actualId = groupId || clickedId;
   if (availableLines.hasOwnProperty(actualId)) {
     const element = document.getElementById(actualId);
     const rect = element.getBoundingClientRect();
     const overlayInfo = {
-      text: availableLines[actualId],
+      placename: availableLines[actualId].placename,
+      buildingname: availableLines[actualId].buildingname,
+      previousplace: availableLines[actualId].previousplace,
+      afterplace: availableLines[actualId].afterplace,
+      placeinfo: availableLines[actualId].placeinfo,
+      time: availableLines[actualId].time,
       x: rect.left + window.scrollX - 50,
       y: rect.top + window.scrollY - 50,
     };
