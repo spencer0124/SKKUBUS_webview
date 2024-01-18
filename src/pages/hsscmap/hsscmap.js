@@ -5,7 +5,6 @@ import { handleSVGClick } from "./handleClick";
 import flutterMapCommunicate from "../../common/flutterMapCommunicate";
 
 function HSSCMap() {
-  const [overlayStyle, setOverlayStyle] = useState(null);
   const [overlayInfo, setOverlayInfo] = useState(null);
 
   const onSVGClick = (event) => {
@@ -16,10 +15,6 @@ function HSSCMap() {
     This change should resolve the issue of the event handler running twice for each click. 
      */
     event.stopPropagation(); // 이거 넣으면 두번씩 터치되는 문제 해결!
-    const style = handleSVGClick(event);
-    if (style) {
-      setOverlayStyle(style);
-    }
     const info = handleSVGClick(event);
     if (info) {
       setOverlayInfo(info);
@@ -32,7 +27,9 @@ function HSSCMap() {
         info.previousplace,
         info.afterplace,
         info.placeinfo,
-        info.time
+        info.time,
+        info.leftColor,
+        info.rightColor
       );
     } else {
       console.log("no overlay");
@@ -41,13 +38,13 @@ function HSSCMap() {
   };
 
   const closeOverlay = () => {
-    // console.log("delete overlay");
     setOverlayInfo(null);
   };
 
+  // overlayInfo가 있으면, 아래의 div를 보여준다.
   return (
     <div onClick={onSVGClick}>
-      <HSSCMapSVG className="h-screen w-auto py-20 px-2.5" />
+      <HSSCMapSVG className="h-screen w-auto pb-20 pt-0.5 px-2.5" />
       {overlayInfo && (
         <div
           style={{ left: overlayInfo.x, top: overlayInfo.y }}

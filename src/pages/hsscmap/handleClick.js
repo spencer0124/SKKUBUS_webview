@@ -50,17 +50,6 @@ export const handleSVGClick = (event) => {
     }
   }
 
-  if (availableLines.hasOwnProperty(clickedId)) {
-    // console.log("if - Information:", availableLines[clickedId]);
-    // alert(availableLines[clickedId]);
-  } else if (groupId && availableLines.hasOwnProperty(groupId)) {
-    // console.log("else if - Information:", availableLines[groupId]);
-    // alert(availableLines[groupId]);
-  } else {
-    // console.log("else - Clicked ID:", clickedId);
-    // console.log("else - Clicked ID not found in availableLines");
-  }
-
   const actualId = groupId || clickedId;
   if (availableLines.hasOwnProperty(actualId)) {
     const element = document.getElementById(actualId);
@@ -72,6 +61,8 @@ export const handleSVGClick = (event) => {
       afterplace: availableLines[actualId].afterplace,
       placeinfo: availableLines[actualId].placeinfo,
       time: availableLines[actualId].time,
+      leftColor: availableLines[actualId].leftColor,
+      rightColor: availableLines[actualId].rightColor,
       x: rect.left + window.scrollX - 9,
       y: rect.top + window.scrollY - 25,
     };

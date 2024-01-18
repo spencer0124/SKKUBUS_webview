@@ -5,7 +5,9 @@ const flutterMapCommunicate = (
   previousplace,
   afterplace,
   placeinfo,
-  time
+  time,
+  leftColor,
+  rightColor
 ) => {
   console.log("flutter map communicate initiated");
 
@@ -20,6 +22,8 @@ const flutterMapCommunicate = (
         afterplace: afterplace,
         placeinfo: placeinfo,
         time: time,
+        leftColor: leftColor,
+        rightColor: rightColor,
       })
     );
   } catch (e) {
