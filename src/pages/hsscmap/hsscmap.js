@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ReactComponent as HSSCMapSVG } from "../../fastmap_skkubus.svg";
-import availableLines from "./availableLines";
+// import availableLines from "./data/AvailableLines";
 import { handleSVGClick } from "./handleClick";
 import flutterMapCommunicate from "../../common/flutterMapCommunicate";
 

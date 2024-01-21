@@ -1,4 +1,4 @@
-import availableLines from "./availableLines";
+import availableLines from "./data/AvailableLines";
 
 /*
 건물끼리 연결하는 연결통로(connect)는 그룹으로 이루어져 있음 -> groupId로 구분

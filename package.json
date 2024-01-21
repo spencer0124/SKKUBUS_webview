@@ -20,7 +20,6 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://spencer0124.github.io/SKKUBUS_webview",
   "eslintConfig": {
     "extends": [
       "react-app",
