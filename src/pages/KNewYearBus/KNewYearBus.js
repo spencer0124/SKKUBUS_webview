@@ -12,7 +12,7 @@ function KNewYearBus() {
         width="500"
         height="500"
       />
-      <a
+      {/* <a
         target="_blank"
         rel="noopener noreferrer"
         className="block text-blue-600 hover:text-blue-800 font-medium py-2 px-4 transition duration-300 ease-in-out"
@@ -21,8 +21,8 @@ function KNewYearBus() {
         }
       >
         👉 수요조사 참여하기
-      </a>
-      <a
+      </a> */}
+      {/* <a
         target="_blank"
         rel="noopener noreferrer"
         className="block text-blue-600 hover:text-blue-800 font-medium py-2 px-4 transition duration-300 ease-in-out"
@@ -31,7 +31,7 @@ function KNewYearBus() {
         }}
       >
         👉 총학생회 게시물 확인하기
-      </a>
+      </a> */}
     </div>
   );
 }

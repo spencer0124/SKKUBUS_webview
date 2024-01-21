@@ -3,7 +3,14 @@ const flutterCommunicate = (url) => {
 
   try {
     // eslint-disable-next-line no-undef
-    knewyearmessage.postMessage(url);
+    customwebviewmessage.postMessage(url);
+  } catch (e) {
+    console.log(e);
+  }
+
+  try {
+    // eslint-disable-next-line no-undef
+    customwebviewmessage.postMessage(url);
   } catch (e) {
     console.log(e);
   }

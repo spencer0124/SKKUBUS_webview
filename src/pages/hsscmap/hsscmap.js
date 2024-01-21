@@ -1,115 +1,72 @@
-import React from "react";
-import { Grommet, grommet, Box } from "grommet";
-import flutterCommunicate from "../../common/flutterCommunicate";
+import React, { useState } from "react";
+import { ReactComponent as HSSCMapSVG } from "../../fastmap_skkubus.svg";
+// import availableLines from "./data/AvailableLines";
+import { handleSVGClick } from "./handleClick";
+import flutterMapCommunicate from "../../common/flutterMapCommunicate";
 
-// Constants
-const ACTIVE_COLOR = "#043927";
-const INACTIVE_COLOR = "#9DC183";
-const WHITE = "#ffffff";
-const BLACK = "#101820";
-const MARKER_DIAMETER = 30;
-const CONNECTOR_THICKNESS = 12;
-const ACTIVE_OUTLINE = 6;
-const INACTIVE_OUTLINE = 3;
-
-const toPx = (num) => `${num}px`;
-
-// // StopConnector Component
-// const StopConnector = ({ index, activeIndex, weight }) => {
-//   return (
-//     <Box
-//       background={activeIndex >= index ? ACTIVE_COLOR : INACTIVE_COLOR}
-//       style={{ flexGrow: weight }}
-//       height={toPx(CONNECTOR_THICKNESS)}
-//     />
-//   );
-// };
-
-// SubwayMap Component
-function SubwayMap({ stops, activeIndex }) {
-  // Calculate the width of the rectangle to be from the center of the first circle to the center of the last circle
-  const totalWidth = toPx(
-    MARKER_DIAMETER * (stops.length - 1) +
-      CONNECTOR_THICKNESS * (stops.length - 1)
-  );
-
-  return (
-    <Box margin="large" align="center">
-      <Box
-        background={INACTIVE_COLOR}
-        direction="row"
-        height={toPx(MARKER_DIAMETER)}
-        width={totalWidth}
-        align="center"
-        style={{
-          position: "relative", // Needed for absolute positioning of markers
-        }}
-      >
-        {stops.map((_, index) => (
-          <StopMarker
-            key={`marker-${index}`}
-            index={index}
-            activeIndex={activeIndex}
-            // Position each marker so the center of the first and last circles are at the edges of the rectangle
-            style={{
-              position: "absolute",
-              left: toPx(
-                index * (MARKER_DIAMETER + CONNECTOR_THICKNESS) -
-                  MARKER_DIAMETER / 2
-              ),
-              zIndex: 1, // Ensure markers are above the rectangle background
-            }}
-          />
-        ))}
-      </Box>
-    </Box>
-  );
-}
-
-// Rest of the components remains unchanged
-
-// StopMarker Component and HSSCMap Component remain unchanged
-
-// Rest of the components remains unchanged
-
-// StopMarker Component remains unchanged
-
-// HSSCMap Component remains unchanged
-
-// StopMarker Component
-const StopMarker = ({ index, activeIndex, style }) => {
-  const isCompleted = index <= activeIndex;
-  return (
-    <Box
-      background={isCompleted ? ACTIVE_COLOR : WHITE}
-      style={{
-        border: `${INACTIVE_OUTLINE}px solid ${BLACK}`,
-        borderRadius: "50%", // Ensures the marker is a circle
-        height: toPx(MARKER_DIAMETER),
-        width: toPx(MARKER_DIAMETER),
-        ...style, // Spread additional styles passed via props
-      }}
-    />
-  );
-};
-
-// HSSCMap Component remains unchanged
-
-// HSSCMap Component
 function HSSCMap() {
-  const ACTIVE_STOP_INDEX = 3;
-  const STOPS = [
-    { weight: 0, label: "옥상" },
-    { weight: 0.5, label: "5층" },
-    { weight: 0.5, label: "4층" },
-    { weight: 0.5, label: "3층" },
-    { weight: 0.5, label: "2층" },
-  ];
+  const [overlayInfo, setOverlayInfo] = useState(null);
 
+  const onSVGClick = (event) => {
+    closeOverlay();
+
+    /*
+    event.stopPropagation() is called at the beginning of the onSVGClick function. This stops the click event from bubbling up to parent elements, which should prevent the event handler from being triggered more than once per click.
+    This change should resolve the issue of the event handler running twice for each click. 
+     */
+    event.stopPropagation(); // 이거 넣으면 두번씩 터치되는 문제 해결!
+    const info = handleSVGClick(event);
+
+    // 마커 생성되는 경우
+    if (info) {
+      setOverlayInfo(info);
+      console.log("info:", info);
+      console.log("set overlay");
+      flutterMapCommunicate(
+        "add",
+        info.placename,
+        info.buildingname,
+        info.previousplace,
+        info.afterplace,
+        info.placeinfo,
+        info.time,
+        info.leftColor,
+        info.rightColor
+      );
+    }
+
+    // 마커 사라지는 경우
+    else {
+      console.log("no overlay");
+      flutterMapCommunicate("delete");
+    }
+  };
+
+  const closeOverlay = () => {
+    setOverlayInfo(null);
+  };
+
+  // overlayInfo가 있으면, 아래의 div(마커 ui)를 보여준다.
   return (
-    <Grommet theme={grommet}>
-      <SubwayMap stops={STOPS} activeIndex={ACTIVE_STOP_INDEX} />
-    </Grommet>
+    <div onClick={onSVGClick}>
+      <HSSCMapSVG className="h-screen w-auto pb-20 pt-0.5 px-2.5" />
+      {overlayInfo && (
+        <div
+          style={{ left: overlayInfo.x, top: overlayInfo.y }}
+          className="absolute flex flex-col items-center"
+        >
+          {/* Tooltip Box */}
+          <div className="p-1 bg-white shadow-lg rounded-lg  border border-gray-300">
+            <div className="text-xs text-gray-700">
+              {/* {overlayInfo.placename} */}
+              📍
+            </div>
+          </div>
+          {/* Tooltip Arrow */}
+          <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-gray-300"></div>
+        </div>
+      )}
+    </div>
   );
 }
 
