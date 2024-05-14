@@ -1,5 +1,5 @@
 import React from "react";
-import NSCmapImage from "../../benzenmap.png";
+import NSCmapImage from "../../benzenmap.webp";
 
 function NSCmap() {
   return (
