@@ -1,5 +1,4 @@
 import React from "react";
-import flutterCommunicate from "../../common/flutterCommunicate";
 
 function KNewYearBus() {
   return (

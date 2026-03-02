@@ -11,15 +11,14 @@ function KNewYearBusDetail() {
         <div className="text-sm sm:text-base text-gray-700">
           <p>1. 아래 예매 링크로 들어가서 예약자 정보 기재 예매</p>
           <p className="text-blue-600 hover:text-blue-700">
-            <a
+            <button
               onClick={() => {
                 flutterCommunicate("https://www.instagram.com/p/C11OUpZvU9G/");
               }}
-              target="_blank"
-              rel="noopener noreferrer"
+              className="bg-transparent border-none cursor-pointer p-0 text-blue-600 hover:text-blue-700 text-sm sm:text-base"
             >
               링크: https://drive.google.com/open...
-            </a>
+            </button>
           </p>
           <p>2. 신한은행 110-493-618129 (예금주: 권도훈) 으로 버스요금 입금</p>
           <p>3. 예약 확인 문자 수신 후 정해진 장소에서 버스 탑승</p>
