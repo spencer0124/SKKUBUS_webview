@@ -2,6 +2,8 @@ import "./App.css";
 import { useEffect } from "react";
 import KNewYearBus from "./pages/KNewYearBus/KNewYearBus";
 import KNewYearBusDetail from "./pages/KNewYearBus/KNewYearBusDetail";
+import HSSCBusInfo from "./pages/bus/HSSCBusInfo";
+import CampusBusInfo from "./pages/bus/CampusBusInfo";
 import { Routes, Route } from "react-router-dom";
 import ErrorPage from "./pages/error";
 import HSSCMap from "./pages/hsscmap/hsscmap";
@@ -26,6 +28,8 @@ function App() {
       <Route path="bus">
         <Route path="newyear" element={<KNewYearBus />} />
         <Route path="newyear/detail" element={<KNewYearBusDetail />} />
+        <Route path="hssc/info" element={<HSSCBusInfo />} />
+        <Route path="campus/info" element={<CampusBusInfo />} />
       </Route>
     </Routes>
   );
