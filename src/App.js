@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import ErrorPage from "./pages/error";
 import HSSCMap from "./pages/hsscmap/hsscmap";
 import NSCMap from "./pages/nscmap/nscmap";
+import LostAndFound from "./pages/lostandfound/LostAndFound";
 
 function App() {
   function setScreenSize() {
@@ -30,6 +31,9 @@ function App() {
         <Route path="newyear/detail" element={<KNewYearBusDetail />} />
         <Route path="hssc/info" element={<HSSCBusInfo />} />
         <Route path="campus/info" element={<CampusBusInfo />} />
+      </Route>
+      <Route path="skku">
+        <Route path="lostandfound" element={<LostAndFound />} />
       </Route>
     </Routes>
   );

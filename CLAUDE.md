@@ -26,6 +26,9 @@ Uses **HashRouter** (not BrowserRouter) so Flutter can load routes like `#/map/h
 | `/map/nsc` | `NSCMap` | Static image campus map (NSC/자연과학캠퍼스) |
 | `/bus/newyear` | `KNewYearBus` | Holiday bus shuttle info |
 | `/bus/newyear/detail` | `KNewYearBusDetail` | Bus shuttle detail |
+| `/bus/hssc/info` | `HSSCBusInfo` | HSSC shuttle bus info |
+| `/bus/campus/info` | `CampusBusInfo` | Campus shuttle bus info |
+| `/skku/lostandfound` | `LostAndFound` | 분실물 (Lost & Found) — uses `flutterCommunicate` for external links & phone calls |
 
 ### Flutter Bridge (`src/common/`)
 
