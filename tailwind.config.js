@@ -10,6 +10,16 @@ module.exports = {
           dark: "#003626",
         },
       },
+      fontFamily: {
+        sans: [
+          "WantedSans",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "sans-serif",
+        ],
+      },
     },
   },
   plugins: [],
