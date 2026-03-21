@@ -21,34 +21,6 @@ const s = {
     paddingBottom: "env(safe-area-inset-bottom)",
     minHeight: "100vh",
   },
-  nav: {
-    position: "sticky",
-    top: 0,
-    zIndex: 100,
-    background: "rgba(255,255,255,0.85)",
-    backdropFilter: "blur(20px)",
-    WebkitBackdropFilter: "blur(20px)",
-    padding: "0 20px",
-    height: 56,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    borderBottom: "1px solid #F2F3F5",
-  },
-  navTitle: { fontSize: 17, fontWeight: 700, letterSpacing: "-0.02em" },
-  navBack: {
-    position: "absolute",
-    left: 20,
-    width: 24,
-    height: 24,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-    background: "none",
-    border: "none",
-    padding: 0,
-  },
   section: { padding: "28px 20px" },
   sectionBorder: { borderTop: "8px solid #F4F4F5" },
   sectionLabel: {
@@ -328,22 +300,6 @@ function MapButtons({ lat, lon, destnameEncode }) {
 function CampusBusInfo() {
   return (
     <div style={s.root}>
-      {/* Nav */}
-      <div style={s.nav}>
-        <button style={s.navBack} onClick={() => window.history.back()}>
-          <svg width="10" height="18" viewBox="0 0 10 18" fill="none">
-            <path
-              d="M9 1L1 9L9 17"
-              stroke="#191F28"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-        <div style={s.navTitle}>인자셔틀</div>
-      </div>
-
       {/* 1. 운행시간 */}
       <div style={s.section}>
         <div style={s.sectionLabel}>운행시간</div>
