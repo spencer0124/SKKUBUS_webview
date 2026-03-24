@@ -261,7 +261,7 @@ function HSSCBusInfo() {
         <div style={styles.sectionTitle}>월요일 ~ 금요일</div>
         <div style={styles.opRow}>
           <div style={styles.opDot} />
-          공휴일 운행 안함
+          공휴일에는 쉬어요
         </div>
         <div style={styles.timeRow}>
           <div style={styles.timeBadge}>
@@ -277,17 +277,17 @@ function HSSCBusInfo() {
 
       {/* 2. 요금 및 결제 */}
       <div style={{ ...styles.section, ...styles.sectionBorder }}>
-        <div style={styles.sectionLabel}>요금 및 결제</div>
+        <div style={styles.sectionLabel}>요금과 결제</div>
         <div style={styles.feeHero}>400원</div>
 
         <div style={{ marginBottom: 20 }}>
-          <div style={styles.payGroupLabel}>결제 가능</div>
+          <div style={styles.payGroupLabel}>결제할 수 있어요</div>
           <div style={styles.payCard}>
             <div style={styles.payItem}>
               <span style={styles.payIcon}>✓</span>체크 / 신용카드
             </div>
             <div style={styles.payNote}>
-              후불교통결제 기능 가능한 카드에 한함
+              후불교통결제가 되는 카드만 쓸 수 있어요
             </div>
             <div style={styles.payItem}>
               <span style={styles.payIcon}>✓</span>T머니
@@ -299,7 +299,7 @@ function HSSCBusInfo() {
         </div>
 
         <div>
-          <div style={styles.payGroupLabel}>결제 불가</div>
+          <div style={styles.payGroupLabel}>결제할 수 없어요</div>
           <div style={styles.payCard}>
             <div style={styles.payItemDisabled}>
               <span style={styles.payIcon}>✕</span>현금

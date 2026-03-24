@@ -192,10 +192,10 @@ function LostAndFound() {
     navigator.clipboard
       .writeText("studentaid@skku.edu")
       .then(() => {
-        alert("이메일 주소 복사가 완료되었습니다");
+        alert("이메일 주소를 복사했어요");
       })
       .catch(() => {
-        alert("복사에 실패했습니다");
+        alert("복사하지 못했어요");
       });
   };
 
@@ -203,8 +203,8 @@ function LostAndFound() {
     <div style={s.root}>
       {/* 1. 처리 절차 */}
       <div style={s.section}>
-        <div style={s.sectionLabel}>유실물 접수</div>
-        <div style={s.sectionTitle}>처리 절차</div>
+        <div style={s.sectionLabel}>유실물</div>
+        <div style={s.sectionTitle}>이렇게 처리돼요</div>
         <div style={s.steps}>
           <div style={s.step}>
             <div style={s.stepIndicator}>
@@ -212,9 +212,9 @@ function LostAndFound() {
               <div style={s.stepLine} />
             </div>
             <div style={s.stepContent}>
-              <div style={s.stepTitle}>습득물 이관</div>
+              <div style={s.stepTitle}>학생지원팀으로 전달</div>
               <div style={s.stepDesc}>
-                최초 발견자 습득 시, 1~2일 내 학생지원팀으로 이관됩니다
+                누군가 주우면 1~2일 안에 학생지원팀으로 보내요
               </div>
             </div>
           </div>
@@ -224,9 +224,9 @@ function LostAndFound() {
               <div style={s.stepLine} />
             </div>
             <div style={s.stepContent}>
-              <div style={s.stepTitle}>게시판 공지</div>
+              <div style={s.stepTitle}>게시판에 올려요</div>
               <div style={s.stepDesc}>
-                학생지원팀에서 유실물 게시판에 1개월간 공지합니다
+                학생지원팀에서 유실물 게시판에 1개월간 올려요
               </div>
             </div>
           </div>
@@ -235,8 +235,8 @@ function LostAndFound() {
               <div style={s.stepNumber}>3</div>
             </div>
             <div style={s.stepContentLast}>
-              <div style={s.stepTitle}>보관 후 폐기</div>
-              <div style={s.stepDesc}>1년간 보관 후 폐기됩니다</div>
+              <div style={s.stepTitle}>1년 보관 후 폐기</div>
+              <div style={s.stepDesc}>1년 동안 보관한 뒤 폐기해요</div>
             </div>
           </div>
         </div>
@@ -258,7 +258,7 @@ function LostAndFound() {
             <div style={s.ctaLeft}>
               <div style={s.ctaIcon}>🔍</div>
               <div>
-                <div style={s.ctaText}>물건을 찾습니다</div>
+                <div style={s.ctaText}>물건을 찾고 있어요</div>
                 <div style={s.ctaSub}>잃어버린 물건을 찾고 있어요</div>
               </div>
             </div>
@@ -285,7 +285,7 @@ function LostAndFound() {
             <div style={s.ctaLeft}>
               <div style={s.ctaIcon}>📦</div>
               <div>
-                <div style={s.ctaText}>주인을 찾습니다</div>
+                <div style={s.ctaText}>주인을 찾고 있어요</div>
                 <div style={s.ctaSub}>습득한 물건의 주인을 찾아요</div>
               </div>
             </div>

@@ -306,34 +306,33 @@ function CampusBusInfo() {
         <div style={s.sectionTitle}>매주 금요일</div>
         <div style={s.opRow}>
           <div style={s.opDot} />
-          금요일 7시 버스는 8시 출발로 대체
+          금요일 7시 버스는 8시에 출발해요
         </div>
         <div style={s.opCaution}>
-          토요일 · 일요일 · 공휴일 · 학교휴일 운행없음
+          주말과 휴일에는 쉬어요
         </div>
       </div>
 
       {/* 2. 요금 */}
       <div style={{ ...s.section, ...s.sectionBorder }}>
-        <div style={s.sectionLabel}>요금 및 결제</div>
+        <div style={s.sectionLabel}>요금과 결제</div>
         <div style={s.feeHero}>무료</div>
       </div>
 
       {/* 3. 안내사항 */}
       <div style={{ ...s.section, ...s.sectionBorder }}>
         <div style={s.sectionLabel}>참고</div>
-        <div style={s.sectionTitle}>안내사항</div>
+        <div style={s.sectionTitle}>안내</div>
         <div style={s.noticeCard}>
           <div style={s.noticeItem}>
             <div style={s.noticeDot} />
             <span>
-              금요일에는 기존 인자셔틀 버스와 별도로 학부대학 셔틀버스가
-              추가운영됩니다
+              금요일엔 학부대학 셔틀이 추가로 다녀요
             </span>
           </div>
           <div style={{ ...s.noticeItem, marginTop: 10 }}>
             <div style={s.noticeDot} />
-            <span>스꾸버스 시간표는 모든 버스 통합 시간표입니다</span>
+            <span>모든 셔틀 통합 시간표예요</span>
           </div>
         </div>
       </div>
